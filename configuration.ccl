@@ -1,0 +1,11 @@
+# Configuration definitions for thorn SGRID
+
+PROVIDES SGRID
+{
+  SCRIPT src/detect.sh
+  LANG bash
+  OPTIONS SGRID_DIR SGRID_INSTALL_DIR SGRID_LIBS
+}
+
+# Pass configuration options to build script
+REQUIRES SGRID
