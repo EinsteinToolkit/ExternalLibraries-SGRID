@@ -29,7 +29,12 @@ DONE_FILE=${SCRATCH_BUILD}/done/${THORN}
 SGRID_DIR=${INSTALL_DIR}
 
 # Set up environment
-unset LIBS
+#unset LIBS
+#unset TOP
+# Roland said that unset does not work, because Cactus circumvents it.
+# So now we remove all flags that make has, which will also affect e.g. -j8
+MAKEFLAGS=${MAKEFLAGS%% -- *}
+
 if echo '' ${ARFLAGS} | grep 64 > /dev/null 2>&1; then
     export OBJECT_MODE=64
 fi
@@ -66,7 +71,7 @@ ${MAKE}
 
 echo "SGRID: Installing..."
 mkdir -p ${INSTALL_DIR}/lib
-cp libsgrid.a ${INSTALL_DIR}/lib
+cp lib/libsgrid.a ${INSTALL_DIR}/lib
 popd
 
 echo "SGRID: Cleaning up..."
