@@ -1,9 +1,20 @@
 Cactus Code Thorn SGRID
 Author(s)    : Roland Haas
-Maintainer(s): Wolgang Tichy, Michal Pirog
-Licence      : TBD
+Maintainer(s): Wolfgang Tichy, Michal Pirog
+License      : TBD
 --------------------------------------------------------------------------
 
 1. Purpose
 
-Distribute the SGRID solver
+Distribute the SGRID library that can be used to read binary neutron
+star initial data produced by SGRID.
+
+
+2. What it can do
+
+In order to use SGRID's initial data in Cactus, we need to interpolate from
+SGRID's grid to the grid points that Cactus is using. The SGRID library
+distributed here, contains functions that can perform interpolation onto
+arbitrary points. Note however, that one also needs the Cactus thorn DNSdata
+to actually read initial data. The DNSdata thorn will use functions inside
+the SGRID library to set up initial data for Cactus.
