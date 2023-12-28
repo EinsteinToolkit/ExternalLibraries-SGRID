@@ -7,4 +7,5 @@ export SCRATCH_BUILD=/home/wolf/mist/ExternalLibraries-SGRID/mist
 export TAR=tar
 export PATCH=patch
 export MAKE=make
+export CC=gcc
 /home/wolf/mist/ExternalLibraries-SGRID/src/build.sh
