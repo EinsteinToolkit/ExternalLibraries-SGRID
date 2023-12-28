@@ -1,0 +1,10 @@
+# Building libsgrid.a without Cactus:
+# -----------------------------------
+cd ExternalLibraries-SGRID
+mkdir mist
+rm -rf mist/*
+export SCRATCH_BUILD=/home/wolf/mist/ExternalLibraries-SGRID/mist
+export TAR=tar
+export PATCH=patch
+export MAKE=make
+/home/wolf/mist/ExternalLibraries-SGRID/src/build.sh
