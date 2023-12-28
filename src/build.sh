@@ -15,6 +15,7 @@ set -e                          # Abort on errors
 # Set locations
 THORN=SGRID
 NAME=sgrid
+NAME_SUFFIX=_a4fe199d
 SRCDIR="$(dirname $0)"
 BUILD_DIR=${SCRATCH_BUILD}/build/${THORN}
 if [ -z "${SGRID_INSTALL_DIR}" ]; then
@@ -47,7 +48,7 @@ mkdir ${BUILD_DIR} ${INSTALL_DIR}
 
 echo "SGRID: Unpacking archive..."
 pushd ${BUILD_DIR}
-${TAR?} xf ${SRCDIR}/../dist/${NAME}.tar
+${TAR?} xf ${SRCDIR}/../dist/${NAME}${NAME_SUFFIX}.tar
 pushd ${NAME}
 #${PATCH?} -p1 < ${SRCDIR}/../dist/stdarg.patch
 # Some (ancient but still used) versions of patch don't support the
