@@ -1,3 +1,36 @@
+# Updating the sgrid version:
+# ---------------------------
+# The dir dist contains a tar file sgrid_<old hash>.tar (e.g.
+# sgrid_a4fe199d.tar), which contains the source for the sgrid library. To
+# update this tar file to a newer sgrid version, follow these steps:
+
+# 1. make a new tar file:
+git clone https://github.com/sgridsource/sgrid.git
+cd sgrid
+make tar_DNSlibsgrid
+cd ..
+# This results in a new tar file: sgrid_<new-hash>.tar
+
+# 2. Copy the new tar file over the old tar file in
+# ExternalLibraries-SGRID/dist.
+cp sgrid_<new-hash>.tar ExternalLibraries-SGRID/dist/sgrid_<old hash>.tar
+cd ExternalLibraries-SGRID/dist
+git commit
+
+# 3. Update the name of the old tar file to the new name:
+# 3.a) rename the tar file
+git mv sgrid_<old hash>.tar sgrid_<new hash>.tar
+cd ..
+# 3.b) Update NAME_SUFFIX is src/build.sh by replacing the line
+NAME_SUFFIX=_<old hash>
+# with
+NAME_SUFFIX=_<new hash>
+# 3.c) Commit the name change and push it into the repo
+git commit
+git push
+
+
+
 # Building libsgrid.a without Cactus:
 # -----------------------------------
 cd ExternalLibraries-SGRID
