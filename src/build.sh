@@ -68,8 +68,7 @@ popd
 
 echo "SGRID: Building..."
 cd ${NAME}
-echo FIXME: Forcing CC=gcc and OFLAGS=-O2. This should be based on Cactus vars!!!
-${MAKE} CC=gcc OFLAGS=-O2
+${MAKE} CC=${CC} OFLAGS="${CFlAGS}"
 
 echo "SGRID: Installing..."
 mkdir -p ${INSTALL_DIR}/lib
